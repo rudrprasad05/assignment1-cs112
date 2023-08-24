@@ -6,6 +6,7 @@
 #include <ctime>
 #include <vector>
 #include <iomanip>
+#include<unistd.h>  
 
 #include "Person.h"
 
@@ -37,6 +38,7 @@ int main(){
 
     bool isSick = false;
     bool temp_sick = false;
+    bool is_printed = false;
     
 
     vector<Person> population;
@@ -128,9 +130,10 @@ int main(){
             cout << "Day " << day << endl;
             for(int y_axis = 0; y_axis <= 50; y_axis++){ // y axis
 
-                cout << y_axis << " | ";
+                // cout << y_axis << " | ";
 
                 for (int x_axis = 0; x_axis <= 80; x_axis++) { // x axis
+                    is_printed = false;
 
                     for(int i = 0; i < MAX_POPULATION; i++){ // go throught the vector population
                         Person person = population[i];
@@ -155,20 +158,24 @@ int main(){
                             
 
                             if(!person.getIsSick()){
-                                cout << setw(2) << 'O' << person.getX() << ", " << person.getY();
+                                cout << setw(2) << 'O';
+                                is_printed = true;
                                 break;
                             }
                             else if(person.getIsSick()){
-                                cout << setw(2) << 'S' << person.getX() << ", " << person.getY();
+                                cout << setw(2) << 'S';
                                 sickCounter++;
+                                is_printed = true;
                                 break;
                             }
                            
                         }
+                        
                     
                     }
+                    if(!is_printed)
+                        cout << setw(2) << ".";
                         
-                    cout << setw(2) << " ";
                 
                 }
                 cout << endl;
@@ -176,6 +183,9 @@ int main(){
             }
 
             cout << "day " << day << " ended with "  << sickCounter <<" sick people\n" << endl;
+             
+            sleep(2);
+            system("clear");
             
             for (int j = 0; j < MAX_POPULATION; j++) {
                 population[j].move();
