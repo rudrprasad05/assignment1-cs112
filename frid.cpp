@@ -1,42 +1,42 @@
 #include <iostream>
-#include <string>
-#include <time.h>
-#include <fstream>
-#include <iomanip>
 
 using namespace std;
 
-class Person
-{
-    public:
-        string id;
-        int x,y; 
-        bool isSick;
-
-        void printDetails();
-        void setID(int i);
-        void setLocation();
-        void makeSick();
-        void move(Person *array, int chance);
+bool isPrime(int num) {
+    if (num <= 1) {
+        return false;
+    }
+    if (num <= 3) {
+        return true;
+    }
+    if (num % 2 == 0 || num % 3 == 0) {
+        return false;
+    }
     
-};
-
-
-
-const int POPULATION = 100;
-
-   int main(){
-       ofstream file("filename.txt");
-    bool running = true;
-    int counter = 0;
-    int infected = 0;
-    char input;
-    int days;
-    int locationData[POPULATION][3];
-
-    Person array[POPULATION];
-
-   
-   
-        
+    for (int i = 5; i * i <= num; i += 6) {
+        if (num % i == 0 || num % (i + 2) == 0) {
+            return false;
         }
+    }
+    
+    return true;
+}
+
+int main() {
+    cout << "Prime numbers between 1 and 500 are:" << endl;
+    
+    for (int i = 1; i <= 500; ++i) {
+
+        if(i == 1 || i == 2 || i == 3 || i == 5 || i == 7){
+            cout << i << endl;
+        }
+        
+        else if (i % 2 != 0 && i % 3 != 0 && i % 5 != 0 && i % 7 != 0){
+            cout << i << endl;
+        }
+    }
+    
+    
+    
+    return 0;
+}
