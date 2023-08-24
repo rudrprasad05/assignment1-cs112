@@ -12,11 +12,8 @@ class Person{
         int id;
         bool isSick;
 
-        
-    
     public:
-        vector<int> prevX;
-        vector<int> prevY;
+        
         // constructor
         Person(int x, int y, int id, bool isSick);
 

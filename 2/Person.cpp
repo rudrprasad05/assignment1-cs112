@@ -72,13 +72,13 @@ void Person::move(){
     int dx = rand() % 3 - 1; 
     int dy = rand() % 3 - 1; 
 
-    int newX = this->x + dx;
-    int newY = this->y + dy;
+    int new_x = this->x + dx;
+    int new_y = this->y + dy;
 
     // check that person does not move out of allocated grid of -100 to 100
-    if((newX >= GRID_MIN && newX <= GRID_MAX) && (newY >= GRID_MIN && newY <= GRID_MAX)){
-        this->x = newX;
-        this->y = newY;
+    if((new_x >= GRID_MIN && new_x <= GRID_MAX) && (new_y >= GRID_MIN && new_y <= GRID_MAX)){
+        this->x = new_x;
+        this->y = new_y;
     }
 
 }
@@ -95,14 +95,14 @@ bool Person::canBeMadeSick(int id1, int x1, int y1, bool isSick){
 
         // 90% probabilty to get sick
         if (probability != 1){
-            cout << this->id << " was close to infected person and caught the virus" << endl;
+            
             return true;
 
         }
 
         // 10% chance to be ok
         else{
-            cout << this->id  << " was close to infected person but didnt catch the virus" << endl;
+            
             return false;
         }
     }
