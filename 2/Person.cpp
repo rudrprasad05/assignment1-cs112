@@ -59,9 +59,9 @@ int Person::getID(){
 
 // print information of the person object onto the screen
 void Person::printInfo(){
-    string sick = (isSick ? "yes" : "no");
+    string sick = (isSick ? "\033[31;1myes \033[0m" : "\033[32;1mno \033[0m");
     cout << "id: "<< id << " " << "location: {" 
-        << x << ", " << y << "} sick: " << sick << endl;
+        << x << ", " << y << "} sick: " << sick <<endl;
 
 }
 
