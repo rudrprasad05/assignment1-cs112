@@ -34,12 +34,12 @@ int main(){
     bool person_is_sick = false;
     bool is_printed = false;
     
-
     vector<Person> population;
   
-
-    cout << "Console based - [c]" << endl;
-    cout << "Simulation - [s]" << endl;
+	cout << "--==[ Welcome to the COVID-19 Simulator ]==--" << endl
+		<< "Menu Options" << endl
+    	<< "Console based - [c]" << endl
+    	<< "Simulation - [s]" << endl;
     cin >> input;
 
     // validate the input. Check to see if input is valid interger
@@ -104,7 +104,7 @@ int main(){
                     if(is_sickPossible){
                         population[j].setIsSick(true); // make person sick
                         sick_counter++; // increment sick counter
-                        cout << "\033[31;1mid: " << person1.getID() << " made id:" << person2.getID() << " sick" << "\033[0m" << endl;
+                        cout << "id: " << person1.getID() << " made id:" << person2.getID() << " sick" << endl;
                         
                     }
                 }
@@ -128,10 +128,10 @@ int main(){
         for (int day = 1; day <= total_days; day++){
 
             cout << "Day " << day << endl;
-            for(int y_axis = 0; y_axis <= 25; y_axis++){ // y axis
+            for(int y_axis = 0; y_axis <= 50; y_axis++){ // y axis
 
                
-                for (int x_axis = 0; x_axis <= 50; x_axis++) { // x axis
+                for (int x_axis = 0; x_axis <= 70; x_axis++) { // x axis
                     is_printed = false;
 
                     for(int i = 0; i < MAX_POPULATION; i++){ // go through the vector population
@@ -184,14 +184,16 @@ int main(){
 
             cout << "day " << day << " ended with "  << sick_counter <<" sick people\n" << endl;
              
-            sleep(SCREEN_REFRESH_RATE);
-            system("clear");
+            
 
             // move the poeple in random direction. 
             
-            for (int j = 0; j < MAX_POPULATION; j++) {
-                population[j].move();
+            for (int i = 0; i < MAX_POPULATION; i++) {
+                population[i].move();
             }
+            
+            sleep(SCREEN_REFRESH_RATE);
+            system("cls");
   
         }
             

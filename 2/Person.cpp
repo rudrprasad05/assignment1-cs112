@@ -1,6 +1,7 @@
 #include "Person.h"
 #include <iostream>
 #include <cmath>
+#include <cstdlib>
 
 using namespace std;
 
@@ -59,7 +60,7 @@ int Person::getID(){
 
 // print information of the person object onto the screen
 void Person::printInfo(){
-    string sick = (isSick ? "\033[31;1myes \033[0m" : "\033[32;1mno \033[0m");
+    string sick = (isSick ? "yes" : "no");
     cout << "id: "<< id << " " << "location: {" 
         << x << ", " << y << "} sick: " << sick <<endl;
 
